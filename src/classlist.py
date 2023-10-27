@@ -16,6 +16,7 @@ class randomList:
     def set_list(self, listname):
         for row in self.randomlist: 
             print(f"{row['German']} : {row['English']}")
+        print('\n')
     
     
 
@@ -27,6 +28,7 @@ class randomList:
                 if response != 'f':
                     response = input(row['German'])
                     response = input(row['English'])
+                print('\n')
 
     
 
@@ -41,16 +43,16 @@ class randomList:
             answer = input(f'What is the German for {cleandefine}? ')
             if answer == cleantarget:
                 correctcounter += 1
-                print(f"Richtig! {cleandefine} is '{cleantarget}'")
+                print(f"Richtig! {cleandefine} is '{cleantarget}'\n")
             while answer != cleantarget:
-                answer = input(f"Nochmal eingeben bitte! (try again or hit 'c' to check answer)   ")  
+                answer = input(f"Nochmal eingeben bitte! (try again or hit 'c' to check answer)  \n ")  
                 if answer == 'c':
                     answer = cleantarget
                     print(f"{cleandefine} is '{cleantarget}'")
                 elif answer == cleantarget:
                     correctcounter += 1
-                    print(f"Richtig! {cleandefine} is '{cleantarget}'")
-        print(f" Toll! You remembered {correctcounter} items!")
+                    print(f"Richtig! {cleandefine} is '{cleantarget}' \n")
+        print(f" Toll! You remembered {correctcounter} items! \n")
 
 
 

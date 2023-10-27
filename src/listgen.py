@@ -29,7 +29,7 @@ def listGenerator(topic_filename):
     vocablist = [r for r in csv.DictReader(topic_filename)]
     randomlist = random.sample(vocablist, 10)
     for row in randomlist: 
-        print(f"{row['German']} : {row['English']}")
+        print(f"{row['German']} : {row['English']}\n")
 
 
 
@@ -37,7 +37,7 @@ def listCycle():
 
     for row in randomlist:
         input(row['German'])
-        input(row['English'])
+        input(f'{row['English']}\n')
 
 
         
