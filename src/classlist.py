@@ -17,6 +17,8 @@ class randomList:
         for row in self.randomlist: 
             print(f"{row['German']} : {row['English']}")
         print('\n')
+        
+        
     
     
 

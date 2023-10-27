@@ -34,9 +34,13 @@ travel_and_directions = open(f'/Users/anna/terminalapp/travel_and_directions.csv
 
 #Get Started: Welcome and Topic Menu!
 
+def main():
+    print('Tag! Wilkommen! \n German Vocab App \n')
+    print('You can choose topic below and get a random vocab list of 10 items. \n 1. food \n 2. spending money \n 3. time \n 4. getting around \n 5. body and health \n')
 
-print('Tag! Wilkommen! \n German Vocab App \n')
-menudict = {
+
+    menuitem = int(input('Enter the # for your chosen topic'))
+    menudict = {
     1 : classlist.randomList(body_and_health),
     2 : classlist.randomList(time),
     3 : classlist.randomList(food),
@@ -49,37 +53,46 @@ menudict = {
     # 5 : healthlist,
     #'6' : peoplelist,
 }
-menuitem = int(input('INSTRUCTIONS: Choose a topic to generate a random list! \n 1. food \n 2. spending money \n 3. time \n 4. getting around \n 5. body and health \n'))
-
-
-def listloader(menuitem):
-    for k, v in menudict.items():
-        if menuitem == k:
-            v.set_list(v)
-            #listname = v
-            
-listloader(menuitem)
-
-def cycle_loader(menuitem):
-    for k, v in menudict.items():
-        if menuitem == k:
-            v.list_cycle(v)
-            #listname = v
-
-cycle_loader(menuitem)
-
-
-def quiz_loader(menuitem):
-    input('ENTER to start a recall quiz \n')
-    for k, v in menudict.items():
-        if menuitem == k:
-            v.quiz_generator(v)
-            #listname = v
-
-quiz_loader(menuitem)
 
 
 
+    def listloader(menuitem):
+        for k, v in menudict.items():
+            if menuitem == k:
+                v.set_list(v)
+                #listname = v
+                
+    listloader(menuitem)
+
+    navchoice = input('Enter = learn list or m = return to menu')
+    if navchoice == 'm':
+        main()
+
+
+
+    def cycle_loader(menuitem):
+        for k, v in menudict.items():
+            if menuitem == k:
+                v.list_cycle(v)
+                #listname = v
+
+    cycle_loader(menuitem)
+
+    navchoice = input('Enter = continue to quiz or m = return to menu')
+    if navchoice == 'm':
+        main()
+
+    def quiz_loader(menuitem):
+        input('ENTER to start a recall quiz \n')
+        for k, v in menudict.items():
+            if menuitem == k:
+                v.quiz_generator(v)
+                #listname = v
+
+    quiz_loader(menuitem)
+
+
+main()
 
 
 #Generate a random list by topic
