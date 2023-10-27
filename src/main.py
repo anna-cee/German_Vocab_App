@@ -39,13 +39,13 @@ def main():
     print('You can choose topic below and get a random vocab list of 10 items. \n 1. food \n 2. spending money \n 3. time \n 4. getting around \n 5. body and health \n')
 
 
-    menuitem = int(input('Enter the # for your chosen topic'))
+    menuitem = input('Enter the # for your chosen topic  ')
     menudict = {
-    1 : classlist.randomList(body_and_health),
-    2 : classlist.randomList(time),
-    3 : classlist.randomList(food),
-    4 : classlist.randomList(travel_and_directions),
-    5 : classlist.randomList(spending_money),
+        '1' : classlist.randomList(body_and_health),
+        '2' : classlist.randomList(time),
+        '3' : classlist.randomList(food),
+        '4' : classlist.randomList(travel_and_directions),
+        '5' : classlist.randomList(spending_money),
     # 1 : foodlist,
     # 2 : spendinglist,
     # 3 : timelist,
@@ -64,7 +64,7 @@ def main():
                 
     listloader(menuitem)
 
-    navchoice = input('Enter = learn list or m = return to menu')
+    navchoice = input('Enter = learn list or m = return to menu  ')
     if navchoice == 'm':
         main()
 
@@ -78,7 +78,7 @@ def main():
 
     cycle_loader(menuitem)
 
-    navchoice = input('Enter = continue to quiz or m = return to menu')
+    navchoice = input('Enter = continue to quiz or m = return to menu  ')
     if navchoice == 'm':
         main()
 

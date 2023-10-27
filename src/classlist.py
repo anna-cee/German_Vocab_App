@@ -4,10 +4,11 @@ import string
 
 
 
+
 class randomList:
     def __init__(self, topic_filename):
         self.vocablist = [r for r in csv.DictReader(topic_filename)]
-        self.randomlist = random.sample(self.vocablist, 10)
+        self.randomlist = random.sample(self.vocablist, 3)
         #for row in self.randomlist: 
             #print(f"{row['German']} : {row['English']}")
     
