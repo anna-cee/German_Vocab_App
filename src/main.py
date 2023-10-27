@@ -13,22 +13,32 @@
 #Pick a random noun
 
 
+print('Tag! Wilkommen! \n German Vocab App \n')
+print('INSTRUCTIONS: Choose a topic to generate a random list! \n 1. time. \n 2.food. \n 3.money. \n 4.')
+
+#functio
+
+      
+   
+
+      
+
 
 
 
 import classlist
 
-#body_and_health = open(f'/Users/anna/terminalapp/body_and_health.csv','r',encoding='utf-8-sig')
+body_and_health = open(f'/Users/anna/terminalapp/body_and_health.csv','r',encoding='utf-8-sig')
 spending_money = open(f'/Users/anna/terminalapp/money_and_transactions.csv','r',encoding='utf-8-sig')
-#food = open(f'/Users/anna/terminalapp/food.csv','r',encoding='utf-8-sig')
-#time = open(f'/Users/anna/terminalapp/time_vocab.csv','r',encoding='utf-8-sig')
-#travel_and_directions = open(f'/Users/anna/terminalapp/travel_and_directions.csv','r',encoding='utf-8-sig')
+food = open(f'/Users/anna/terminalapp/food.csv','r',encoding='utf-8-sig')
+time = open(f'/Users/anna/terminalapp/time_vocab.csv','r',encoding='utf-8-sig')
+travel_and_directions = open(f'/Users/anna/terminalapp/travel_and_directions.csv','r',encoding='utf-8-sig')
 
 
-#healthlist = classlist.randomList(body_and_health)
-#timelist = classlist.randomList(time)
-#foodlist = classlist.randomList(food)
-#travellist= classlist.randomList(travel_and_directions)
+healthlist = classlist.randomList(body_and_health)
+timelist = classlist.randomList(time)
+foodlist = classlist.randomList(food)
+travellist= classlist.randomList(travel_and_directions)
 spendinglist = classlist.randomList(spending_money)
 
 
@@ -37,7 +47,7 @@ spendinglist = classlist.randomList(spending_money)
 #timelist.set_list(timelist)
 #foodlist.set_list(foodlist)
 #travellist.set_list(travellist)
-spendinglist.set_list(spendinglist)
+#spendinglist.set_list(spendinglist)
 #healthlist.set_list(healthlist)
 
 #Practice the list
@@ -51,7 +61,7 @@ spendinglist.set_list(spendinglist)
 #timelist.quiz_generator(timelist)
 #foodlist.quiz_generator(foodlist)
 #travellist.quiz_generator(travellist)
-spendinglist.quiz_generator(spendinglist)
+#spendinglist.quiz_generator(spendinglist)
 #healthlist.quiz_generator(healthlist)
 
 
