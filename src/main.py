@@ -25,11 +25,11 @@ food = open(f'/Users/anna/terminalapp/food.csv','r',encoding='utf-8-sig')
 time = open(f'/Users/anna/terminalapp/time_vocab.csv','r',encoding='utf-8-sig')
 travel_and_directions = open(f'/Users/anna/terminalapp/travel_and_directions.csv','r',encoding='utf-8-sig')
 
-healthlist = classlist.randomList(body_and_health)
-timelist = classlist.randomList(time)
-foodlist = classlist.randomList(food)
-travellist= classlist.randomList(travel_and_directions)
-spendinglist = classlist.randomList(spending_money)
+# healthlist = classlist.randomList(body_and_health)
+# timelist = classlist.randomList(time)
+# foodlist = classlist.randomList(food)
+# travellist= classlist.randomList(travel_and_directions)
+#spendinglist = classlist.randomList(spending_money)
 
 
 #Get Started: Welcome and Topic Menu!
@@ -37,11 +37,16 @@ spendinglist = classlist.randomList(spending_money)
 
 print('Tag! Wilkommen! \n German Vocab App \n')
 menudict = {
-    1 : foodlist,
-    2 : spendinglist,
-    3 : timelist,
-    4 : travellist,
-    5 : healthlist,
+    1 : classlist.randomList(body_and_health),
+    2 : classlist.randomList(time),
+    3 : classlist.randomList(food),
+    4 : classlist.randomList(travel_and_directions),
+    5 : classlist.randomList(spending_money),
+    # 1 : foodlist,
+    # 2 : spendinglist,
+    # 3 : timelist,
+    # 4 : travellist,
+    # 5 : healthlist,
     #'6' : peoplelist,
 }
 menuitem = int(input('INSTRUCTIONS: Choose a topic to generate a random list! \n 1. food \n 2. spending money \n 3. time \n 4. getting around \n 5. body and health \n'))
@@ -51,7 +56,7 @@ def listloader(menuitem):
     for k, v in menudict.items():
         if menuitem == k:
             v.set_list(v)
-            listname = v
+            #listname = v
             
 listloader(menuitem)
 
@@ -59,7 +64,7 @@ def cycle_loader(menuitem):
     for k, v in menudict.items():
         if menuitem == k:
             v.list_cycle(v)
-            listname = v
+            #listname = v
 
 cycle_loader(menuitem)
 
@@ -69,21 +74,11 @@ def quiz_loader(menuitem):
     for k, v in menudict.items():
         if menuitem == k:
             v.quiz_generator(v)
-            listname = v
+            #listname = v
 
 quiz_loader(menuitem)
 
-#print(listname)
 
-
-
-#input = input('ENTER cycle through this list')
-#listname.list_cycle(listname)
-        
-
-#def navbar(menuitem):
-#     input=input()
-#     if input == 'm':
 
 
 
