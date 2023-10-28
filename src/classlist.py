@@ -63,45 +63,46 @@ class TableGenerator:
 class FlashcardGenerator:
     def __init__(self, tablename):
         self.tablename = tablename
-        response = input(f"Press ENTER to cycle the list or 'f' to exit.")
+        input(f"Press ENTER to cycle the list or 'f' to exit.")
         index = 0
-        while response != 'f':
-            response = input()
+        #while response != 'f':
+        while index < len(englishlist):
+            #response = input()
             print(magenta('\n=================='))
             print(bold(magenta(germanlist[index])))
-            response = (input(englishlist[index]))
+            input(englishlist[index])
             index += 1
-            if index == len(englishlist):
-                check = input("\n Nochmal? Go again? any key or 'f' to end \n")
-                if check != 'f':
-                    index = 0
-              
+            # if index == len(englishlist):
+            #     check = input("\n Nochmal? Go again? any key or 'f' to end \n")
+            #     if check != 'f':
+            #         index = 0
+               
                 
 
 
 
-
-#     def quiz_generator(self, listname):
-#         correctcounter = 0
-#         for item in self.randomlist:
-#             targetvocab = item['German']
-#             definevocab = item['English']
-#             cleantarget = targetvocab.rstrip()
-#             cleandefine = definevocab.rstrip()
-            
-#             answer = input(f'What is the German for {cleandefine}? ')
-#             if answer == cleantarget:
-#                 correctcounter += 1
-#                 print(green(f"Richtig! {cleandefine} is '{cleantarget}'\n"))
-#             while answer != cleantarget:
-#                 answer = input(f"Nochmal eingeben bitte! (try again or hit 'c' to check answer)  \n ")  
-#                 if answer == 'c':
-#                     answer = cleantarget
-#                     print(green(f"{cleandefine} is '{cleantarget}'"))
-#                 elif answer == cleantarget:
-#                     correctcounter += 1
-#                     print(green(f"Richtig! {cleandefine} is '{cleantarget}' \n"))
-#         print(magenta(f" Toll! You remembered {correctcounter} items! \n"))
+class QuizGenerator:
+    def __init__(self, workinglist):
+        self.workinglist = workinglist
+        correctcounter = 0
+        for item in workinglist:
+            targetvocab = item['German']
+            definevocab = item['English']
+            cleantarget = targetvocab.rstrip()
+            cleandefine = definevocab.rstrip()
+            answer = input(f'What is the German for {cleandefine}? ')
+            if answer == cleantarget:
+                    correctcounter += 1
+                    print(green(f"Richtig! {cleandefine} is '{cleantarget}'\n"))
+            while answer != cleantarget:
+                answer = input(f"Nochmal eingeben bitte! (try again or hit 'c' to check answer)  \n ")                   
+                if answer == 'c':
+                    answer = cleantarget
+                    print(blue(f"{cleandefine} is '{cleantarget}'"))
+                elif answer == cleantarget:
+                    correctcounter += 1
+                    print(green(f"Richtig! {cleandefine} is '{cleantarget}' \n"))
+        print(magenta(f" Toll! You remembered {correctcounter} items! \n"))
 
 
 

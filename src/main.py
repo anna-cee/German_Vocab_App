@@ -25,23 +25,54 @@ menu_select = input('Choose. \n 1. health and body \n 2. time \n 3. food \n 4. g
 
 if menu_select == '1':
     healthlist = classlist.Randomlist(open(f'/Users/anna/terminalapp/body_and_health.csv','r',encoding='utf-8-sig'))
+    #trying to get some functionality from main.
+
+    #print(healthlist.workinglist)
+    healthvocab = healthlist.workinglist
+    #print(healthvocab)
+    healthtable = classlist.TableGenerator(healthvocab)
+    #print(healthtable.vocabtable)
+    healthflashcards = classlist.FlashcardGenerator(healthtable)
+    healthquiz = classlist.QuizGenerator(healthvocab)
+
 elif menu_select == '2':
     timelist = classlist.Randomlist(open(f'/Users/anna/terminalapp/time_vocab.csv','r',encoding='utf-8-sig'))
+    #print(healthlist.workinglist)
+    timevocab = timelist.workinglist
+    #print(healthvocab)
+    timetable = classlist.TableGenerator(timevocab)
+    #print(healthtable.vocabtable)
+    timeflashcards = classlist.FlashcardGenerator(timetable)
+    healthquiz = classlist.QuizGenerator(timevocab)
+
 elif menu_select == '3':
     foodlist = classlist.Randomlist(open(f'/Users/anna/terminalapp/food.csv','r',encoding='utf-8-sig'))
+    #print(healthlist.workinglist)
+    foodvocab = foodlist.workinglist
+    #print(healthvocab)
+    foodtable = classlist.TableGenerator(foodvocab)
+    #print(healthtable.vocabtable)
+    foodflashcards = classlist.FlashcardGenerator(foodtable)
+    foodquiz = classlist.QuizGenerator(foodvocab)
 elif menu_select == '4':
     travellist = classlist.Randomlist(open(f'/Users/anna/terminalapp/travel_and_directions.csv','r',encoding='utf-8-sig'))
+    #print(healthlist.workinglist)
+    travelvocab = travellist.workinglist
+    #print(healthvocab)
+    traveltable = classlist.TableGenerator(travelvocab)
+    #print(healthtable.vocabtable)
+    travelflashcards = classlist.FlashcardGenerator(traveltable)
+    travelquiz = classlist.QuizGenerator(travelvocab)
 elif menu_select == '5':
     spendinglist = classlist.Randomlist(open(f'/Users/anna/terminalapp/money_and_transactions.csv','r',encoding='utf-8-sig'))
+    #print(healthlist.workinglist)
+    spendingvocab = spendinglist.workinglist
+    #print(healthvocab)
+    spendingtable = classlist.TableGenerator(spendingvocab)
+    #print(healthtable.vocabtable)
+    spendingflashcards = classlist.FlashcardGenerator(spendingtable)
+    spendingquiz = classlist.QuizGenerator(spendingvocab)
 
-#trying to get some functionality from main.
-
-#print(healthlist.workinglist)
-healthvocab= healthlist.workinglist
-#print(healthvocab)
-healthtable = classlist.TableGenerator(healthvocab)
-#print(healthtable.vocabtable)
-healthflashcards = classlist.FlashcardGenerator(healthtable)
 
 
 
