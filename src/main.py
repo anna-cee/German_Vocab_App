@@ -20,57 +20,61 @@ import classlist
 
 
 #Check csv locations
-body_and_health = open(f'/Users/anna/terminalapp/body_and_health.csv','r',encoding='utf-8-sig')
-spending_money = open(f'/Users/anna/terminalapp/money_and_transactions.csv','r',encoding='utf-8-sig')
-food = open(f'/Users/anna/terminalapp/food.csv','r',encoding='utf-8-sig')
-time = open(f'/Users/anna/terminalapp/time_vocab.csv','r',encoding='utf-8-sig')
-travel_and_directions = open(f'/Users/anna/terminalapp/travel_and_directions.csv','r',encoding='utf-8-sig')
 
-# healthlist = classlist.randomList(body_and_health)
-# timelist = classlist.randomList(time)
-# foodlist = classlist.randomList(food)
-# travellist= classlist.randomList(travel_and_directions)
-#spendinglist = classlist.randomList(spending_money)
-
+healthlist = open(f'/Users/anna/terminalapp/body_and_health.csv','r',encoding='utf-8-sig')
+spendinglist= open(f'/Users/anna/terminalapp/money_and_transactions.csv','r',encoding='utf-8-sig')
+foodlist = open(f'/Users/anna/terminalapp/food.csv','r',encoding='utf-8-sig')
+timelist = open(f'/Users/anna/terminalapp/time_vocab.csv','r',encoding='utf-8-sig')
+travellist = open(f'/Users/anna/terminalapp/travel_and_directions.csv','r',encoding='utf-8-sig')
 
 #Get Started: Welcome and Topic Menu!
 
 def main():
     print('Tag! Wilkommen! \n German Vocab App \n')
-    print('You can choose topic below and get a random vocab list of 10 items. \n 1. food \n 2. spending money \n 3. time \n 4. getting around \n 5. body and health \n')
-
-
+    print('You can choose topic below and get a random vocab list of 10 items. \n 1. health and body \n 2. time \n 3. food \n 4. getting around \n 5. spending money \n')
     menuitem = input('Enter the # for your chosen topic  ')
     print(menuitem)
     menudict = {
-        '1' : classlist.randomList(body_and_health),
-        '2' : classlist.randomList(time),
-        '3' : classlist.randomList(food),
-        '4' : classlist.randomList(travel_and_directions),
-        '5' : classlist.randomList(spending_money),
-    # 1 : foodlist,
-    # 2 : spendinglist,
-    # 3 : timelist,
-    # 4 : travellist,
-    # 5 : healthlist,
-    #'6' : peoplelist,
-}
-    germanlist = []
-    englishlist = []
-    contextlist = []
+    '1' : healthlist,
+    '2' : timelist,
+    '3' : foodlist,
+    '4' : travellist,
+    '5' : spendinglist,
+    # '1' : classlist.randomList(healthlist),
+  
+
+    }
 
     def listloader(menuitem):
-        for k, v in menudict.items():
-            if menuitem == k:
-                v.set_list(v)
-                #listname = v
-                
+        for num, listname in menudict.items():
+            if menuitem == num:
+                classlist.randomList(listname)
+                #print(listname)
+                #filename.set_list(randomlist)
+                #filename.set_list(filename)
+                #print(filename)
+                #v.set_list(v)
+                #listname = v           
     listloader(menuitem)
+
+    # def set_table(menuitem):
+    #     for num, filename in menudict.items():
+    #         if menuitem == num:
+    #             filename.set_table(filename)
+
+    # set_table(menuitem)
+    
+  
+
+    #     for num, filename in menudict.items():
+    #         if menuitem == num:
+    #             filename.set_list(filename)
+
+    # listtable(menuitem)
 
     #navchoice = input('Enter = learn list or m = return to menu  ')
     #if navchoice == 'm':
         #main()
-
 
 
     def cycle_loader(menuitem):
@@ -79,7 +83,7 @@ def main():
                 v.list_cycle(v)
                 #listname = v
 
-    #cycle_loader(menuitem)
+   # cycle_loader(menuitem)
 
     # navchoice = input('Enter = continue to quiz or m = return to menu  ')
     # if navchoice == 'm':
@@ -127,4 +131,11 @@ main()
 #Remember to use german spelling and include articles for nouns
 #You get a score for the words you remember, it doesn't matter how many tries before getting the word
 #You can check with ´c´ to get the meaning, for words you don´t remember.
+
+
+# healthlist = classlist.randomList(body_and_health)
+# timelist = classlist.randomList(time)
+# foodlist = classlist.randomList(food)
+# travellist= classlist.randomList(travel_and_directions)
+# spendinglist = classlist.randomList(spending_money)
 

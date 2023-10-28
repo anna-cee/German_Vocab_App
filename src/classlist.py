@@ -2,23 +2,24 @@ import csv
 import random
 import string
 from prettytable import PrettyTable
-x = PrettyTable()
 
 
+table = PrettyTable()
 germanlist = []
 englishlist = []
 contextlist = []
 
-class randomList:
-    def __init__(self, topic_filename):
-        self.vocablist = [r for r in csv.DictReader(topic_filename)]
-        self.randomlist = random.sample(self.vocablist, 10)
-        #for row in self.randomlist: 
-            #print(f"{row['German']} : {row['English']}")
-    
+healthlist = open(f'/Users/anna/terminalapp/body_and_health.csv','r',encoding='utf-8-sig')
+spendinglist= open(f'/Users/anna/terminalapp/money_and_transactions.csv','r',encoding='utf-8-sig')
+foodlist = open(f'/Users/anna/terminalapp/food.csv','r',encoding='utf-8-sig')
+timelist = open(f'/Users/anna/terminalapp/time_vocab.csv','r',encoding='utf-8-sig')
+travellist = open(f'/Users/anna/terminalapp/travel_and_directions.csv','r',encoding='utf-8-sig')
 
-    # Setter
-    def set_list(self, listname):
+class randomList:
+    def __init__(self, listname):
+        self.vocablist = [r for r in csv.DictReader(listname)]
+        self.randomlist = random.sample(self.vocablist, 10)
+        #print(self.randomlist)
         for row in self.randomlist:
             for k, v in row.items():
                 if k == "German":
@@ -29,28 +30,43 @@ class randomList:
             for k, v in row.items():
                 if k == "Context":
                     contextlist.append(v)
-
-        x.add_column("German", germanlist)
-        x.add_column("English", englishlist)
-        x.add_column("Context", contextlist)
-        print(x.get_string(fields=["German", "English"]))
-
-
-        
-    
+        table.add_column("German", germanlist)
+        table.add_column("English", englishlist)
+        table.add_column("Context", contextlist)
+        print(table.get_string(fields=["German", "English"]))
+       
+        #for row in self.randomlist: 
+            #print(f"{row['German']} : {row['English']}")
     
 
-    
-    def list_cycle(self, listname):
-        response = input(f"Press ENTER to cycle the list or 'f' to exit.")
-        while response != 'f':
-            for row in self.randomlist: 
-                if response != 'f':
-                    response = input(row['German'])
-                    response = input(row['English'])
-                print('\n')
+    # Setter
+    # def set_list(self, listname):
+    #     x.add_column("German", germanlist)
+    #     x.add_column("English", englishlist)
+    #     x.add_column("Context", contextlist)
+    #     print(x.get_string(fields=["German", "English"]))
 
     
+    # def list_cycle(self, filename):
+    #     response = input(f"Press ENTER to cycle the list or 'f' to exit.")
+    #     while response != 'f':
+    #         for i in germanlist:
+    #             x.add_row(i)
+    #             print(x)
+    #         # for row in self.randomlist: 
+    #         #     if response != 'f':
+    #         #         response = input(row['German'])
+    #         #         response = input(row['English'])
+    #         #     print('\n')
+
+            
+                
+        # x.add_column("English", englishlist)
+        # x.add_column("Context", contextlist)
+        # print(x.get_string(fields=["German", "English"]))
+
+
+
 
     def quiz_generator(self, listname):
         correctcounter = 0
