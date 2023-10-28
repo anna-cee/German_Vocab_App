@@ -3,6 +3,13 @@ import random
 import string
 from prettytable import PrettyTable
 
+from cli_color_py import red, bright_yellow, green, blue, bold, magenta
+
+#print(green("hello"))
+#print(bold(red("world")))
+
+#print(bright_yellow("background", bg=True))
+
 
 table = PrettyTable()
 flashcard = PrettyTable()
@@ -21,9 +28,8 @@ class randomList:
         self.vocablist = [r for r in csv.DictReader(listname)]
         self.randomlist = random.sample(self.vocablist, 10)
         workinglist = self.randomlist
-        print(workinglist)
+        #print(workinglist)
 
-   
         for row in workinglist:
             for k, v in row.items():
                 if k == "German":
@@ -42,8 +48,9 @@ class randomList:
         response = input(f"Press ENTER to cycle the list or 'f' to exit.")
         index = 0
         while response != 'f':
-            response = input(germanlist[index])
-            response = input(englishlist[index])
+            response = input()
+            print(bold(magenta(germanlist[index])))
+            response = (input(englishlist[index]))
             print('\n')
             index += 1
             if index == len(englishlist):
