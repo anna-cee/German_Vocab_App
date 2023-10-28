@@ -5,10 +5,6 @@ from prettytable import PrettyTable
 
 from cli_color_py import red, bright_yellow, green, blue, bold, magenta
 
-#print(green("hello"))
-#print(bold(red("world")))
-
-#print(bright_yellow("background", bg=True))
 
 
 table = PrettyTable()
@@ -29,14 +25,7 @@ class Randomlist:
         self.vocablist = [r for r in csv.DictReader(listdir)]
         self.randomlist = random.sample(self.vocablist, 10)
         self.workinglist = self.randomlist
-        #print(self.workinglist)
-        #print(self.workinglist)
-        #self.germanlist = []
-        #self.englishlist = []
-        #self.contextlist = []
 
-        #
-  
 
 class TableGenerator:
     def __init__(self, tablevocab):
@@ -108,20 +97,3 @@ class QuizGenerator:
 
 
             
-
-
-# # for row in self.randomlist: 
-# #             print(f"{row['German']} : {row['English']}")
-# #         print('\n')            
-
-
-#         #for row in self.randomlist: 
-#             #print(f"{row['German']} : {row['English']}")
-    
-
-#     # Setter
-#     # def set_list(self, listname):
-#     #     x.add_column("German", germanlist)
-#     #     x.add_column("English", englishlist)
-#     #     x.add_column("Context", contextlist)
-#     #     print(x.get_string(fields=["German", "English"]))
