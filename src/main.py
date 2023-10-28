@@ -1,22 +1,18 @@
 #Welcome to the App Menu
 #List of 5 topics
 
-#got 5 csv files with data
-
-# I want a function that can trn that data into a random list
-#which I can get, it is a dicirtonary
-
-#I want to turn that random list into a table I can print to the terminal
-
-#I want to turn that same list into flashcard cycler
-
-#I want to generate a quiz from that same list.
-
-#I have the code for each feature, I'm just not sure how to tie it all together with the table 
+#I want a nav feature whre I can move from feature to feature through the app 
+#or at least return to the app menu to choose a new topic
 
 
 from cli_color_py import red, yellow, green, blue, bold, magenta
 import classlist
+
+#Nav keys
+# m == menu_select
+# l == list
+# f == flashcards
+# q = quiz
 
 print(yellow('Tag! Wilkommen!'))
 print(red('German Vocab App \n'))
@@ -24,16 +20,28 @@ print(red('German Vocab App \n'))
 menu_select = input('Choose. \n 1. health and body \n 2. time \n 3. food \n 4. getting around \n 5. spending money \n')
 
 if menu_select == '1':
-    healthlist = classlist.Randomlist(open(f'/Users/anna/terminalapp/body_and_health.csv','r',encoding='utf-8-sig'))
-    #trying to get some functionality from main.
-
+    healthlist = classlist.Randomlist(open(f'/Users/anna/terminalapp/body_and_health.csv','r',encoding='utf-8-sig')) 
     #print(healthlist.workinglist)
     healthvocab = healthlist.workinglist
     #print(healthvocab)
     healthtable = classlist.TableGenerator(healthvocab)
+    nav = input("Press 'f' to practice the list with flashcards \n Press 'm' to return to menu.")
+    if nav ==  'm':
+        print(menu_select)
+    if nav == 'f':
+        healthflashcards = classlist.FlashcardGenerator(healthtable)
+    nav = input("Press 'q' for a quiz, \n 'l' to return to list, \n or 'm' to return to menu.")
+    if nav == 'l':
+        print(healthtable)
+    if nav == 'q':
+        healthquiz = classlist.QuizGenerator(healthvocab)
+    if nav == 'm':
+        print(menu_select)
+
+
     #print(healthtable.vocabtable)
-    healthflashcards = classlist.FlashcardGenerator(healthtable)
-    healthquiz = classlist.QuizGenerator(healthvocab)
+    
+    
 
 elif menu_select == '2':
     timelist = classlist.Randomlist(open(f'/Users/anna/terminalapp/time_vocab.csv','r',encoding='utf-8-sig'))
@@ -51,9 +59,12 @@ elif menu_select == '3':
     foodvocab = foodlist.workinglist
     #print(healthvocab)
     foodtable = classlist.TableGenerator(foodvocab)
+    #go back to menu or make flashcards or quiz
     #print(healthtable.vocabtable)
     foodflashcards = classlist.FlashcardGenerator(foodtable)
+    #Go back to menu to list or quiz
     foodquiz = classlist.QuizGenerator(foodvocab)
+    #Got back to menu to flashcards or list
 elif menu_select == '4':
     travellist = classlist.Randomlist(open(f'/Users/anna/terminalapp/travel_and_directions.csv','r',encoding='utf-8-sig'))
     #print(healthlist.workinglist)
@@ -75,32 +86,18 @@ elif menu_select == '5':
 
 
 
+# def navigate():
+#     response = input("Press 'm' to return to menu or 'n' to go to next feature")
+#     if response =='m':
+#         print(menu_select)
+#     if response =='n':
+        
+            
 
-#classlist.FlashcardGenerator(healthtable)
 
 
-
-# for num, listname in menudict.items():
-#     if menuitem == num:
-#         print(classlist.Randomlist(listname))
     
-    
-                #v.set_list(v)              
    
-#Check csv locations
-#instances of Randonlists
-
-    
-    # workinglist = Randomlist.workinglist
-    # print(workinglist)
-
-    
-
-    # workinglist = classlist.workinglist
-
-#    set_table(workinglist)
-    
-
 
     
 
@@ -148,41 +145,4 @@ elif menu_select == '5':
 
 
 
-
-#Generate a random list by topic
-
-#timelist.set_list(timelist)
-#foodlist.set_list(foodlist)
-#travellist.set_list(travellist)
-#spendinglist.set_list(spendinglist)
-#healthlist.set_list(healthlist)
-
-#Practice the list
-#timelist.list_cycle(timelist)
-#foodlist.list_cycle(foodlist)
-#travellist.list_cycle(travellist)
-#spendinglist.list_cycle(spendinglist)
-#healthlist.list_cycle(healthlist)
-
-#Quiz yourself
-#timelist.quiz_generator(timelist)
-#foodlist.quiz_generator(foodlist)
-#travellist.quiz_generator(travellist)
-#spendinglist.quiz_generator(spendinglist)
-#healthlist.quiz_generator(healthlist)
-
-
-
-#Instruction for quiz zou are asked for the german word for an English meaning form your list
-#Answer the question with w German word from the list
-#Remember to use german spelling and include articles for nouns
-#You get a score for the words you remember, it doesn't matter how many tries before getting the word
-#You can check with ´c´ to get the meaning, for words you don´t remember.
-
-
-# healthlist = classlist.randomList(body_and_health)
-# timelist = classlist.randomList(time)
-# foodlist = classlist.randomList(food)
-# travellist= classlist.randomList(travel_and_directions)
-# spendinglist = classlist.randomList(spending_money)
 
