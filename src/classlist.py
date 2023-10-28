@@ -1,6 +1,8 @@
 import csv
 import random
 import string
+from prettytable import PrettyTable
+x = PrettyTable()
 
 
 

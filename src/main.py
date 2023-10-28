@@ -18,6 +18,7 @@
 
 import classlist
 
+
 #Check csv locations
 body_and_health = open(f'/Users/anna/terminalapp/body_and_health.csv','r',encoding='utf-8-sig')
 spending_money = open(f'/Users/anna/terminalapp/money_and_transactions.csv','r',encoding='utf-8-sig')
