@@ -1,59 +1,78 @@
 #Welcome to the App Menu
+#List of 5 topics
 
-#Pick a list by topic
+#got 5 csv files with data
 
-#To list of topics
+# I want a function that can trn that data into a random list
+#which I can get, it is a dicirtonary
 
-#Choose a topic and random list is selected
-#German only is displayed
-#User inputs to See the translations
-#User can opt to cycle through all vocab and translations
-#User can opt for quiz - vocab displays
+#I want to turn that random list into a table I can print to the terminal
 
-#Pick a random noun
+#I want to turn that same list into flashcard cycler
 
+#I want to generate a quiz from that same list.
 
-  
+#I have the code for each feature, I'm just not sure how to tie it all together with the table 
 
 
+from cli_color_py import red, yellow, green, blue, bold, magenta
 import classlist
 
+print(yellow('Tag! Wilkommen!'))
+print(red('German Vocab App \n'))
 
-#Check csv locations
+menu_select = input('Choose. \n 1. health and body \n 2. time \n 3. food \n 4. getting around \n 5. spending money \n')
 
-healthlist = open(f'/Users/anna/terminalapp/body_and_health.csv','r',encoding='utf-8-sig')
-spendinglist= open(f'/Users/anna/terminalapp/money_and_transactions.csv','r',encoding='utf-8-sig')
-foodlist = open(f'/Users/anna/terminalapp/food.csv','r',encoding='utf-8-sig')
-timelist = open(f'/Users/anna/terminalapp/time_vocab.csv','r',encoding='utf-8-sig')
-travellist = open(f'/Users/anna/terminalapp/travel_and_directions.csv','r',encoding='utf-8-sig')
+if menu_select == '1':
+    healthlist = classlist.Randomlist(open(f'/Users/anna/terminalapp/body_and_health.csv','r',encoding='utf-8-sig'))
+elif menu_select == '2':
+    timelist = classlist.Randomlist(open(f'/Users/anna/terminalapp/time_vocab.csv','r',encoding='utf-8-sig'))
+elif menu_select == '3':
+    foodlist = classlist.Randomlist(open(f'/Users/anna/terminalapp/food.csv','r',encoding='utf-8-sig'))
+elif menu_select == '4':
+    travellist = classlist.Randomlist(open(f'/Users/anna/terminalapp/travel_and_directions.csv','r',encoding='utf-8-sig'))
+elif menu_select == '5':
+    spendinglist = classlist.Randomlist(open(f'/Users/anna/terminalapp/money_and_transactions.csv','r',encoding='utf-8-sig'))
 
-#Get Started: Welcome and Topic Menu!
+#trying to get some functionality from main.
 
-def main():
-    print('Tag! Wilkommen! \n German Vocab App \n')
-    print('You can choose topic below and get a random vocab list of 10 items. \n 1. health and body \n 2. time \n 3. food \n 4. getting around \n 5. spending money \n')
-    menuitem = input('Enter the # for your chosen topic  ')
-    print(menuitem)
-    menudict = {
-    '1' : healthlist,
-    '2' : timelist,
-    '3' : foodlist,
-    '4' : travellist,
-    '5' : spendinglist,
-    # '1' : classlist.randomList(healthlist),
-  
+#print(healthlist.workinglist)
+healthvocab= healthlist.workinglist
+#print(healthvocab)
+healthtable = classlist.TableGenerator(healthvocab)
+#print(healthtable.vocabtable)
+healthflashcards = classlist.FlashcardGenerator(healthtable)
 
-    }
 
-    def listloader(menuitem):
-        for num, listname in menudict.items():
-            if menuitem == num:
-                classlist.randomList(listname)
-            
+
+#classlist.FlashcardGenerator(healthtable)
+
+
+
+# for num, listname in menudict.items():
+#     if menuitem == num:
+#         print(classlist.Randomlist(listname))
+    
+    
                 #v.set_list(v)              
-    listloader(menuitem)
+   
+#Check csv locations
+#instances of Randonlists
 
     
+    # workinglist = Randomlist.workinglist
+    # print(workinglist)
+
+    
+
+    # workinglist = classlist.workinglist
+
+#    set_table(workinglist)
+    
+
+
+    
+
 
     #def set_list(menuitem):
     #     for num, listname in menudict.items():
@@ -75,11 +94,11 @@ def main():
         #main()
 
 
-    def cycle_loader(menuitem):
-        for k, v in menudict.items():
-            if menuitem == k:
-                v.list_cycle(v)
-                #listname = v
+    # def cycle_loader(menuitem):
+    #     for k, v in menudict.items():
+    #         if menuitem == k:
+    #             v.list_cycle(v)
+    #             #listname = v
 
    # cycle_loader(menuitem)
 
@@ -87,17 +106,16 @@ def main():
     # if navchoice == 'm':
     #    # main()
 
-    def quiz_loader(menuitem):
-        input('ENTER to start a recall quiz \n')
-        for k, v in menudict.items():
-            if menuitem == k:
-                v.quiz_generator(v)
-                #listname = v
+    # def quiz_loader(menuitem):
+    #     input('ENTER to start a recall quiz \n')
+    #     for k, v in menudict.items():
+    #         if menuitem == k:
+    #             v.quiz_generator(v)
+    #             #listname = v
 
     #quiz_loader(menuitem)
 
 
-main()
 
 
 #Generate a random list by topic
