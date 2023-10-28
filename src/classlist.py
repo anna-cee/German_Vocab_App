@@ -5,6 +5,7 @@ from prettytable import PrettyTable
 
 
 table = PrettyTable()
+flashcard = PrettyTable()
 germanlist = []
 englishlist = []
 contextlist = []
@@ -19,8 +20,11 @@ class randomList:
     def __init__(self, listname):
         self.vocablist = [r for r in csv.DictReader(listname)]
         self.randomlist = random.sample(self.vocablist, 10)
-        #print(self.randomlist)
-        for row in self.randomlist:
+        workinglist = self.randomlist
+        print(workinglist)
+
+   
+        for row in workinglist:
             for k, v in row.items():
                 if k == "German":
                     germanlist.append(v)
@@ -34,32 +38,19 @@ class randomList:
         table.add_column("English", englishlist)
         table.add_column("Context", contextlist)
         print(table.get_string(fields=["German", "English"]))
-       
-        #for row in self.randomlist: 
-            #print(f"{row['German']} : {row['English']}")
-    
-
-    # Setter
-    # def set_list(self, listname):
-    #     x.add_column("German", germanlist)
-    #     x.add_column("English", englishlist)
-    #     x.add_column("Context", contextlist)
-    #     print(x.get_string(fields=["German", "English"]))
-
-    
-    # def list_cycle(self, filename):
-    #     response = input(f"Press ENTER to cycle the list or 'f' to exit.")
-    #     while response != 'f':
-    #         for i in germanlist:
-    #             x.add_row(i)
-    #             print(x)
-    #         # for row in self.randomlist: 
-    #         #     if response != 'f':
-    #         #         response = input(row['German'])
-    #         #         response = input(row['English'])
-    #         #     print('\n')
-
-            
+        
+        response = input(f"Press ENTER to cycle the list or 'f' to exit.")
+        index = 0
+        while response != 'f':
+            response = input(germanlist[index])
+            response = input(englishlist[index])
+            print('\n')
+            index += 1
+            if index == len(englishlist):
+                check = input("Nochmal? Go again? any key or 'f' to end \n")
+                if check != 'f':
+                    index = 0
+              
                 
         # x.add_column("English", englishlist)
         # x.add_column("Context", contextlist)
@@ -101,3 +92,13 @@ class randomList:
 #         print('\n')            
 
 
+        #for row in self.randomlist: 
+            #print(f"{row['German']} : {row['English']}")
+    
+
+    # Setter
+    # def set_list(self, listname):
+    #     x.add_column("German", germanlist)
+    #     x.add_column("English", englishlist)
+    #     x.add_column("Context", contextlist)
+    #     print(x.get_string(fields=["German", "English"]))

@@ -49,20 +49,18 @@ def main():
         for num, listname in menudict.items():
             if menuitem == num:
                 classlist.randomList(listname)
-                #print(listname)
-                #filename.set_list(randomlist)
-                #filename.set_list(filename)
-                #print(filename)
-                #v.set_list(v)
-                #listname = v           
+            
+                #v.set_list(v)              
     listloader(menuitem)
 
-    # def set_table(menuitem):
-    #     for num, filename in menudict.items():
-    #         if menuitem == num:
-    #             filename.set_table(filename)
+    
 
-    # set_table(menuitem)
+    #def set_list(menuitem):
+    #     for num, listname in menudict.items():
+    #         if menuitem == num:
+    #            listname.set_list(listname)
+
+    # set_list(menuitem)
     
   
 
