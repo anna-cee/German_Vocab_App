@@ -5,22 +5,37 @@ from prettytable import PrettyTable
 x = PrettyTable()
 
 
-
+germanlist = []
+englishlist = []
+contextlist = []
 
 class randomList:
     def __init__(self, topic_filename):
         self.vocablist = [r for r in csv.DictReader(topic_filename)]
-        self.randomlist = random.sample(self.vocablist, 3)
+        self.randomlist = random.sample(self.vocablist, 10)
         #for row in self.randomlist: 
             #print(f"{row['German']} : {row['English']}")
     
 
     # Setter
     def set_list(self, listname):
-        for row in self.randomlist: 
-            print(f"{row['German']} : {row['English']}")
-        print('\n')
-        
+        for row in self.randomlist:
+            for k, v in row.items():
+                if k == "German":
+                    germanlist.append(v)
+            for k, v in row.items():
+                if k == "English":
+                    englishlist.append(v)
+            for k, v in row.items():
+                if k == "Context":
+                    contextlist.append(v)
+
+        x.add_column("German", germanlist)
+        x.add_column("English", englishlist)
+        x.add_column("Context", contextlist)
+        print(x.get_string(fields=["German", "English"]))
+
+
         
     
     
@@ -65,6 +80,8 @@ class randomList:
             
 
 
-            
+# for row in self.randomlist: 
+#             print(f"{row['German']} : {row['English']}")
+#         print('\n')            
 
 

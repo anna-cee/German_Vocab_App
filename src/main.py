@@ -41,6 +41,7 @@ def main():
 
 
     menuitem = input('Enter the # for your chosen topic  ')
+    print(menuitem)
     menudict = {
         '1' : classlist.randomList(body_and_health),
         '2' : classlist.randomList(time),
@@ -54,8 +55,9 @@ def main():
     # 5 : healthlist,
     #'6' : peoplelist,
 }
-
-
+    germanlist = []
+    englishlist = []
+    contextlist = []
 
     def listloader(menuitem):
         for k, v in menudict.items():
@@ -65,9 +67,9 @@ def main():
                 
     listloader(menuitem)
 
-    navchoice = input('Enter = learn list or m = return to menu  ')
-    if navchoice == 'm':
-        main()
+    #navchoice = input('Enter = learn list or m = return to menu  ')
+    #if navchoice == 'm':
+        #main()
 
 
 
@@ -77,11 +79,11 @@ def main():
                 v.list_cycle(v)
                 #listname = v
 
-    cycle_loader(menuitem)
+    #cycle_loader(menuitem)
 
-    navchoice = input('Enter = continue to quiz or m = return to menu  ')
-    if navchoice == 'm':
-        main()
+    # navchoice = input('Enter = continue to quiz or m = return to menu  ')
+    # if navchoice == 'm':
+    #    # main()
 
     def quiz_loader(menuitem):
         input('ENTER to start a recall quiz \n')
@@ -90,7 +92,7 @@ def main():
                 v.quiz_generator(v)
                 #listname = v
 
-    quiz_loader(menuitem)
+    #quiz_loader(menuitem)
 
 
 main()
