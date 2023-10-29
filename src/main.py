@@ -7,6 +7,7 @@
 
 from cli_color_py import red, yellow, green, blue, bold, magenta
 import classlist
+import quiz 
 
 #Nav keys
 # m == menu_select
@@ -17,7 +18,8 @@ import classlist
 print(yellow('Tag! Wilkommen!\n'))
 print(red('German Vocab App \n'))
 
-def menu(menu_option):
+
+def menu():
 
     menu_option= input('Choose. \n 1. health and body \n 2. time \n 3. food \n 4. getting around \n 5. spending money \n')
 
@@ -27,19 +29,11 @@ def menu(menu_option):
         health_vocab = health_list.workinglist
         #print(healthvocab)
         health_table = classlist.TableGenerator(health_vocab)
-        nav = input("Press 'f' to practice the list with flashcards \n Press 'm' to return to menu.")
-        if nav ==  'm':
-            print(menu_select)
-        if nav == 'f':
-            healthflashcards = classlist.FlashcardGenerator(health_table)
-        nav = input("Press 'q' for a quiz, \n 'l' to return to list, \n or 'm' to return to menu.")
-        if nav == 'l':
-            print(health_table)
-        if nav == 'q':
-            healthquiz = classlist.QuizGenerator(health_vocab)
-        if nav == 'm':
-            print(menu_select)
-
+    
+        health_flashcards = classlist.FlashcardGenerator(health_table)
+        
+        health_quiz = quiz.QuizGenerator(health_vocab)
+    
 
     #print(healthtable.vocabtable)
     
@@ -52,8 +46,9 @@ def menu(menu_option):
         #print(healthvocab)
         time_table = classlist.TableGenerator(time_vocab)
         #print(healthtable.vocabtable)
-        time_flashcards = classlist.FlashcardGenerator(time_table)
-        time_quiz = classlist.QuizGenerator(time_vocab)
+        #time_flashcards = classlist.FlashcardGenerator(time_table)
+        #time_quiz = quiz.QuizGenerator(time_vocab)
+        time_contextquiz = quiz.ContextQuizGenerator(time_vocab)
 
     elif menu_option == '3':
         food_list = classlist.Randomlist(open(f'/Users/anna/terminalapp/food.csv','r',encoding='utf-8-sig'))
@@ -86,7 +81,7 @@ def menu(menu_option):
         spending_flashcards = classlist.FlashcardGenerator(spending_table)
         spending_quiz = classlist.QuizGenerator(spending_vocab)
 
-
+menu()
 
     # def navigate():
     #     response = input("Press 'm' to return to menu or 'n' to go to next feature")
