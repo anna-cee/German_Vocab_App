@@ -6,6 +6,7 @@ class QuizGenerator:
     def __init__(self, workinglist):
         self.workinglist = workinglist
         correctcounter = 0
+        print(blue("QUIZ ... 1. WORD MATCH RECALL\n"))
         for item in workinglist:
             targetvocab = item['German']
             definevocab = item['English']
@@ -24,12 +25,13 @@ class QuizGenerator:
                     correctcounter += 1
                     print(green(f"Richtig! {cleandefine} is '{cleantarget}' \n"))
         print(magenta(f" Toll! You remembered {correctcounter} items! \n"))
+        input('Press any key for GAPFILL.')
 
 class ContextQuizGenerator:
     def __init__(self, workinglist):
         self.workinglist = workinglist
         #word = str
-        
+        print(green('QUIZ ... 2. GAP FILL\n'))
         for item in workinglist: 
             sentence = item['Context'].split()
             matchlist = item['German'].split()

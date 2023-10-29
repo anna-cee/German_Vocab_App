@@ -8,7 +8,6 @@ from cli_color_py import red, bright_yellow, green, blue, bold, magenta
 
 
 table = PrettyTable()
-flashcard = PrettyTable()
 germanlist = []
 englishlist = []
 contextlist = []
@@ -43,25 +42,30 @@ class TableGenerator:
             for k, v in row.items():
                 if k == "Context":
                     contextlist.append(v)
-        table.add_column("German", self.germanlist)
         table.add_column("English", self.englishlist)
+        table.add_column("German", self.germanlist)
         table.add_column("Context", self.contextlist)
         self.vocabtable = table.get_string(fields=["German", "English"])
+        print(green('RANDOM LIST...'))
         print(green(self.vocabtable))
+        input('Press any key to see list with words in context.')
+        self.vocabtable = table.get_string(fields=["German", "English", "Context"])
+        print(green(self.vocabtable))
+        input('Press any key to start FLASHCARDS.\n')
         
-class FlashcardGenerator:
-    def __init__(self, tablename):
-        self.tablename = tablename
-        input(f"Press ENTER to cycle the list or 'f' to exit.")
-        index = 0
-        #while response != 'f':
-        while index < len(englishlist):
-            #response = input()
-            print(magenta('\n=================='))
-            print(bold(magenta(germanlist[index])))
-            input(englishlist[index])
-            index += 1
-            # if index == len(englishlist):
+# class FlashcardGenerator:
+#     def __init__(self, tablename):
+#         self.tablename = tablename
+#         input(f"Press ENTER to cycle the list or 'f' to exit.")
+#         index = 0
+#         #while response != 'f':
+#         while index < len(englishlist):
+#             #response = input()
+#             print(magenta('\n=================='))
+#             print(bold(magenta(germanlist[index])))
+#             input(englishlist[index])
+#             index += 1
+#             # if index == len(englishlist):
             #     check = input("\n Nochmal? Go again? any key or 'f' to end \n")
             #     if check != 'f':
             #         index = 0
