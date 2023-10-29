@@ -53,22 +53,7 @@ class TableGenerator:
         print(green(self.vocabtable))
         input('Press any key to start FLASHCARDS.\n')
         
-# class FlashcardGenerator:
-#     def __init__(self, tablename):
-#         self.tablename = tablename
-#         input(f"Press ENTER to cycle the list or 'f' to exit.")
-#         index = 0
-#         #while response != 'f':
-#         while index < len(englishlist):
-#             #response = input()
-#             print(magenta('\n=================='))
-#             print(bold(magenta(germanlist[index])))
-#             input(englishlist[index])
-#             index += 1
-#             # if index == len(englishlist):
-            #     check = input("\n Nochmal? Go again? any key or 'f' to end \n")
-            #     if check != 'f':
-            #         index = 0
+
                
                 
 
