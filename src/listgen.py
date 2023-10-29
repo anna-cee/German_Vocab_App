@@ -65,6 +65,67 @@ x.add_column("English", englishlist)
 x.add_column("Context", contextlist)
 print(x.get_string(fields=["German", "English"]))
 
+Exceptions
+class NegativeNumberError(Exception):
+    pass
+
+try:
+
+    n = 1
+    y = 6
+
+    if n<1 or d <1:
+        raise NegativeNumberError("Must be positive integer")
+    #looks like the raise has to be in the try block with print(e) 
+    #or identifier name under except ValueError at the bottem.
+
+
+
+except Exception as e:
+    #e is an identifier, arbitraty name
+    print('Something went wrong')
+    print(e) #this tells you what the error was.
+except ZeroDivisionError as e:
+    print('Denomiator cannot be zero'  )
+
+except ValueError:
+    print('Inputs must be integers')
+
+except NegativeNumberError as e:
+    print('Inputs must be positive numbers')
+
+except Exception as e:
+    print('Something went wrong')
+    print(e)
+
+#except block overrides default python erro
+
+#bank account example
+#at top of code
+Class InsufficientBalance(Exception):
+   pass
+
+#at funciton in this case it was at else statemetn
+    raise InsufficientBalance()
+
+#then at the print or call of the pucntion
+actual = 0
+while actual == 0:
+
+    try:
+        amount = int(input('Enter withdrawal amount:'))
+        actual = acc1.withdraw(amount)
+        print(actual)
+        or 
+success == False
+while not success:
+    try:
+        same as above with..
+    sucess = actual == amount
+    except InsuffiencetBalance:
+        print('Not enough funds to withdraw')
+
+
 
 
 
