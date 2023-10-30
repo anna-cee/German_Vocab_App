@@ -26,7 +26,8 @@ class Randomlist:
         self.vocablist = [r for r in csv.DictReader(listdir)]
         self.randomlist = random.sample(self.vocablist, 10)
         self.workinglist = self.randomlist
-        #print(self.randomlist)
+        print(self.randomlist)
+    
 
 
 class TableGenerator:
@@ -52,12 +53,14 @@ class TableGenerator:
         self.vocabtable = table.get_string(fields=["German", "English"])
         print(Fore.GREEN + 'RANDOM LIST...')
         print(Fore.GREEN + self.vocabtable)
+        print(englishlist, germanlist)
         input('Press any key to see list with words in context.')
         self.vocabtable = table.get_string(fields=["German", "English", "Context"])
         print(Fore.GREEN + self.vocabtable)
 
         self.vocabtable = table.clear()
         print(self.vocabtable)
+        print('okay')
       
         input('Press any key to start FLASHCARDS.\n')
 

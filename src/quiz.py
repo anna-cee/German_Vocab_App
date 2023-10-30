@@ -54,7 +54,9 @@ class ContextQuizGenerator:
                         if answer != match:
                             print(Fore.GREEN + f"The answer was '{match}''")
 
-  
+
+
+
 
 
 

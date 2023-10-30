@@ -45,11 +45,12 @@ class FlashcardGenerator:
                 self.flash_eng(tablename)
         if nav == 'G':
                 self.flash_germ(tablename)
+                
+def clear_lists():
+         randomlist.englishlist = []
+         randomlist.contextlist = []
+         randomlist.germanlist = []
 
-    def reset_tablelists():
-        randomlist.germanlist = []
-        randomlist.englishlist = []
-        randomlist.contextlist = []
        
 
            
