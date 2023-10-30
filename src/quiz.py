@@ -1,12 +1,13 @@
 
 import string
-from cli_color_py import red, bright_yellow, green, blue, bold, magenta
+from colorama import Fore, Back, Style
+import randomlist
 
 class QuizGenerator:
     def __init__(self, workinglist):
         self.workinglist = workinglist
         correctcounter = 0
-        print(blue("QUIZ ... 1. WORD MATCH RECALL\n"))
+        print(Fore.CYAN +"QUIZ ... 1. WORD MATCH RECALL\n")
         for item in workinglist:
             targetvocab = item['German']
             definevocab = item['English']
@@ -15,23 +16,23 @@ class QuizGenerator:
             answer = input(f'What is the German for {cleandefine}? ')
             if answer == cleantarget:
                     correctcounter += 1
-                    print(green(f"Richtig! {cleandefine} is '{cleantarget}'\n"))
+                    print(Fore.GREEN + f"Richtig! {cleandefine} is '{cleantarget}'\n")
             while answer != cleantarget:
                 answer = input(f"Nochmal eingeben bitte! (try again or hit 'c' to check answer)  \n ")                   
                 if answer == 'c':
                     answer = cleantarget
-                    print(blue(f"{cleandefine} is '{cleantarget}'"))
+                    print(Fore.GREEN + f" {cleandefine} is '{cleantarget}'\n")
                 elif answer == cleantarget:
                     correctcounter += 1
-                    print(green(f"Richtig! {cleandefine} is '{cleantarget}' \n"))
-        print(magenta(f" Toll! You remembered {correctcounter} items! \n"))
+                    print(Fore.GREEN + f"Richtig! {cleandefine} is '{cleantarget}'\n")
+        print(Fore.MAGENTA + f" Toll! You remembered {correctcounter} items! \n")
         input('Press any key for GAPFILL.')
 
 class ContextQuizGenerator:
     def __init__(self, workinglist):
         self.workinglist = workinglist
         #word = str
-        print(green('QUIZ ... 2. GAP FILL\n'))
+        print(Fore.CYAN + 'QUIZ ... 2. GAP FILL\n')
         for item in workinglist: 
             sentence = item['Context'].split()
             matchlist = item['German'].split()
@@ -47,11 +48,13 @@ class ContextQuizGenerator:
                         separator = " "
                         answer = input(f'Which word is missing?        {(separator.join(sentence))}  ')       
                         if answer == match:
-                                print(blue('Richtig!'))
+                                print(Fore.CYAN + 'Richtig!')
                         if answer == (f'match'+'.'):
-                                print(blue('Richtig!'))
+                                print(Fore.CYAN + 'Richtig!')
                         if answer != match:
-                            print(green(f"The answer was '{match}''"))
+                            print(Fore.GREEN + f"The answer was '{match}''")
+
+  
 
 
 
