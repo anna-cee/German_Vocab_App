@@ -2,6 +2,7 @@ import csv
 import random
 import string
 from prettytable import PrettyTable
+#from prettytable.colortable import ColorTable
 from colorama import Fore, Back, Style
 
 
@@ -25,7 +26,7 @@ class Randomlist:
         self.vocablist = [r for r in csv.DictReader(listdir)]
         self.randomlist = random.sample(self.vocablist, 10)
         self.workinglist = self.randomlist
-        print(self.randomlist)
+        #print(self.randomlist)
 
 
 class TableGenerator:
@@ -33,7 +34,8 @@ class TableGenerator:
         self.tablevocab = tablevocab
         self.germanlist = germanlist
         self.englishlist = englishlist
-        self.contextlist = contextlist    
+        self.contextlist = contextlist 
+     
         for row in self.tablevocab:
             for k, v in row.items():
                    if k == "German":
@@ -52,15 +54,15 @@ class TableGenerator:
         print(Fore.GREEN + self.vocabtable)
         input('Press any key to see list with words in context.')
         self.vocabtable = table.get_string(fields=["German", "English", "Context"])
-        print(Fore.GREEN +self.vocabtable)
+        print(Fore.GREEN + self.vocabtable)
+
+        self.vocabtable = table.clear()
+        print(self.vocabtable)
+      
         input('Press any key to start FLASHCARDS.\n')
 
-# def reset_table(self, tablename):
-#         self.germanlist  = None
-#         self.englishlist = None
-#         self.contextlist = None     
 
-        
+            
 
                
                 

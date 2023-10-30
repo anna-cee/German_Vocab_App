@@ -99,14 +99,17 @@ def menu():
         elif menu_option == '5':
             spending_list = randomlist.Randomlist(open(f'/Users/anna/terminalapp/money_and_transactions.csv','r',encoding='utf-8-sig'))
             #print(healthlist.workinglist)
+            
             spending_vocab = spending_list.workinglist
-            #print(healthvocab)
+            
             spending_table = randomlist.TableGenerator(spending_vocab)
             #print(healthtable.vocabtable)
-            spending_flashcards = flashcard.FlashcardGenerator(spending_table)
-            spending_quiz = quiz.QuizGenerator(spending_vocab)
-            spending_contextquiz = quiz.ContextQuizGenerator(spending_vocab)
-            reset = randomlist.reset_table(spending_table)
+            # spending_flashcards = flashcard.FlashcardGenerator(spending_table)
+            # spending_quiz = quiz.QuizGenerator(spending_vocab)
+            # spending_contextquiz = quiz.ContextQuizGenerator(spending_vocab)
+            #
+            #
+            reset = flashcard.FlashcardGenerator.reset_tablelists()
             menu()
 
         elif menu_option != '1' or menu_option != '2' or menu_option != '3' or menu_option != '4' or menu_option != '5':
