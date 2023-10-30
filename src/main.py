@@ -71,7 +71,7 @@ def menu():
             time_table = randomlist.TableGenerator(time_vocab)
             time_flashcards = flashcard.FlashcardGenerator(time_vocab)
             time_quiz = quiz.QuizGenerator(time_vocab)
-            time_contextquiz = quiz.ContextQuizGenerator(time_vocab)
+            time_contexptquiz = quiz.ContextQuizGenerator(time_vocab)
 
             menu()
 

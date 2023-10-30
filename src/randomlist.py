@@ -24,7 +24,7 @@ class Randomlist:
         self.vocablist = [r for r in csv.DictReader(listdir)]
         self.randomlist = random.sample(self.vocablist, 10)
         self.workinglist = self.randomlist
-        print(self.randomlist)
+       
     
 
 class TableGenerator:
