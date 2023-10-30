@@ -52,7 +52,6 @@ def menu():
 
         if menu_option == '1':
             health_list = randomlist.Randomlist(open(f'/Users/anna/terminalapp/body_and_health.csv','r',encoding='utf-8-sig')) 
-            #print(healthlist.workinglist)
             health_vocab = health_list.workinglist
             health_table = randomlist.TableGenerator(health_vocab)
             nav_option()
@@ -69,9 +68,13 @@ def menu():
             time_list = randomlist.Randomlist(open(f'/Users/anna/terminalapp/time_vocab.csv','r',encoding='utf-8-sig'))
             time_vocab = time_list.workinglist        
             time_table = randomlist.TableGenerator(time_vocab)
-            time_flashcards = flashcard.FlashcardGenerator(time_vocab)
+            nav_option()
+            time_flashcards = flashcard.FlashcardGenerator(time_table)
+            nav_option()
             time_quiz = quiz.QuizGenerator(time_vocab)
-            time_contexptquiz = quiz.ContextQuizGenerator(time_vocab)
+            nav_option()
+            time_contextquiz = quiz.ContextQuizGenerator(time_vocab)
+            print('Super gemacht! Back to Menu!')
 
             menu()
 
@@ -79,9 +82,13 @@ def menu():
             food_list = randomlist.Randomlist(open(f'/Users/anna/terminalapp/food.csv','r',encoding='utf-8-sig'))
             food_vocab = food_list.workinglist
             food_table = randomlist.TableGenerator(food_vocab)
+            nav_option()
             food_flashcards = flashcard.FlashcardGenerator(food_table)
+            nav_option()
             food_quiz = quiz.QuizGenerator(food_vocab)
+            nav_option()
             food_contextquiz = quiz.ContextQuizGenerator(food_vocab)
+            print('Super gemacht! Back to Menu!')
            
             menu()
 
@@ -89,9 +96,14 @@ def menu():
             travel_list = randomlist.Randomlist(open(f'/Users/anna/terminalapp/travel_and_directions.csv','r',encoding='utf-8-sig'))
             travel_vocab = travel_list.workinglist
             travel_table = randomlist.TableGenerator(travel_vocab)
+            nav_option()
             travel_flashcards = flashcard.FlashcardGenerator(travel_table)
+            nav_option()
             travel_quiz = quiz.QuizGenerator(travel_vocab)
+            nav_option()
             travel_contextquiz = quiz.ContextQuizGenerator(travel_vocab)
+            print('Super gemacht! Back to Menu!')
+           
            
             menu()
 
@@ -99,10 +111,13 @@ def menu():
             spending_list = randomlist.Randomlist(open(f'/Users/anna/terminalapp/money_and_transactions.csv','r',encoding='utf-8-sig'))
             spending_vocab = spending_list.workinglist
             spending_table = randomlist.TableGenerator(spending_vocab)
+            nav_option()
             spending_flashcards = flashcard.FlashcardGenerator(spending_table)
+            nav_option()
             spending_quiz = quiz.QuizGenerator(spending_vocab)
+            nav_option()
             spending_contextquiz = quiz.ContextQuizGenerator(spending_vocab)
-
+            print('Super gemacht! Back to Menu!')
             menu()
 
         elif menu_option != '1' or menu_option != '2' or menu_option != '3' or menu_option != '4' or menu_option != '5':

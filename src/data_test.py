@@ -1,3 +1,4 @@
+import pytest
 
 
 quiz_test_data = [
@@ -14,29 +15,31 @@ quiz_test_data = [
      ]
 
 
-#match quiz test - determine answer = target
-
-def test_item_match(data):
-    correctcounter = 0
-    index = 0
-    while index < len(quiz_test_data):
-        for item in quiz_test_data:
-            targetvocab = item['German']
-            definevocab = item['English']
-            cleantarget = targetvocab.rstrip()
-            cleandefine = definevocab.rstrip()
-            answer = cleantarget
-            index += 1
-            if answer == cleantarget:
-                 correctcounter += 1
-                 print(f"Richtig! {cleandefine} is '{cleantarget}'\n")
-
-test_item_match(quiz_test_data)
+datalist = quiz_test_data
+def quiz_test(datalist):
+    for item in datalist: 
+        sentence = item['Context'].split()
+        matchlist = item['German'].split()
+        for match in matchlist:
+            match_clean = match.strip()
+            if len(match_clean) > 3 or len(match_clean)<= 2:
+                target_word = match_clean
+                print(target_word)
+        for word in sentence:
+            word_clean = word.strip()
+            if word_clean == target_word:
+                print(word_clean)
     
+        #assert word_clean == target_word
+            
+quiz_test(quiz_test_data)
+  
 
-           
 
-        
+
+
+
+            
 
 
 
