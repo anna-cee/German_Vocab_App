@@ -6,13 +6,11 @@ from prettytable import PrettyTable
 from colorama import Fore, Back, Style
 
 
-
-
-
 table = PrettyTable()
 germanlist = []
 englishlist = []
 contextlist = []
+
 
 healthlist = open(f'/Users/anna/terminalapp/body_and_health.csv','r',encoding='utf-8-sig')
 spendinglist= open(f'/Users/anna/terminalapp/money_and_transactions.csv','r',encoding='utf-8-sig')
@@ -28,7 +26,6 @@ class Randomlist:
         self.workinglist = self.randomlist
         print(self.randomlist)
     
-
 
 class TableGenerator:
     def __init__(self, tablevocab):
@@ -54,15 +51,18 @@ class TableGenerator:
         print(Fore.GREEN + 'RANDOM LIST...')
         print(Fore.GREEN + self.vocabtable)
         print(englishlist, germanlist)
+
         input('Press any key to see list with words in context.')
+
         self.vocabtable = table.get_string(fields=["German", "English", "Context"])
         print(Fore.GREEN + self.vocabtable)
 
-        self.vocabtable = table.clear()
-        print(self.vocabtable)
-        print('okay')
-      
         input('Press any key to start FLASHCARDS.\n')
+        self.vocabtable = table.clear()
+        
+        
+      
+        
 
 
             

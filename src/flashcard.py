@@ -3,19 +3,25 @@
 from colorama import Fore, Back, Style
 import randomlist
 
-
 class FlashcardGenerator:
     def __init__(self, tablename):
         self.tablename = tablename
-      
         print(Fore.MAGENTA + "FLASHCARD GENERATOR ...\n")
-        direction = input(f" Press E for English > German, or G for German > English  (or any key to skip)   ")
+        self.nav_option(tablename)
+    
+    def nav_option(self, tablename):
+        direction = input(f"Enter 'E' for English > German, or 'G' for German > English    ('N' = Next) ")
         if direction == 'E':
             self.flash_eng(tablename)
-        if direction == 'G':
+        elif direction == 'G':
             self.flash_germ(tablename)
-
-
+        elif direction == 'N':
+            self.flash_clear(tablename)
+        elif direction != 'E' or direction != 'G' or direction != 'N':
+                print('Oops, try again')
+                (FlashcardGenerator(tablename))
+       
+    
     def flash_eng(self,tablename):
         index = 0
         while index < len(randomlist.englishlist):
@@ -24,32 +30,31 @@ class FlashcardGenerator:
             input()
             input(randomlist.germanlist[index])
             index += 1
-        nav = input('Nochmal? Press E for English first, G for German first,or any key for QUIZ. \n')
-        if nav == 'E':
-                self.flash_eng(tablename)
-        if nav == 'G':
-                self.flash_germ(tablename)
-        
+        print('Nochmal? Tryagain?')
+        self.nav_option(tablename)
+   
 
     def flash_germ(self,tablename):
         index = 0
         while index < len(randomlist.englishlist):
-            #response = input()
+        
             print('\n==================')
             print(randomlist.germanlist[index])
             input()
             input(randomlist.englishlist[index])
             index += 1
-        nav = input('Nochmal? Press E for English first, G for German first,or any key for QUIZ.')
-        if nav == 'E':
-                self.flash_eng(tablename)
-        if nav == 'G':
-                self.flash_germ(tablename)
-                
-def clear_lists():
-         randomlist.englishlist = []
-         randomlist.contextlist = []
-         randomlist.germanlist = []
+        print('\n  Nochmal? Go again? \n')
+        self.nav_option(tablename)
+      
+
+    def flash_clear(self,tablename):
+            randomlist.englishlist = []
+            randomlist.contextlist = []
+            randomlist.germanlist = []
+          
+    
+
+            
 
        
 
