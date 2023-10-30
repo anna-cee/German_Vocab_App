@@ -50,14 +50,11 @@ class TableGenerator:
         self.vocabtable = table.get_string(fields=["German", "English"])
         print(Fore.GREEN + 'RANDOM LIST...')
         print(Fore.GREEN + self.vocabtable)
-        print(englishlist, germanlist)
-
+      
         input('Press any key to see list with words in context.')
-
         self.vocabtable = table.get_string(fields=["German", "English", "Context"])
         print(Fore.GREEN + self.vocabtable)
 
-        input('Press any key to start FLASHCARDS.\n')
         self.vocabtable = table.clear()
         
         

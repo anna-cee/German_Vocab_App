@@ -39,6 +39,12 @@ print(features_table)
 class MenuCheckError(Exception):
     pass
 
+def nav_option():
+    navoption = input("Press any key for next feature or 'M' to return to Main Menu for a new list.\n")
+    if navoption == 'M':
+         menu()
+
+
 def menu():
     try:
         menu_option= input('\nCHOOSE A TOPIC TO START! \n \n 1. health and body \n 2. time \n 3. food \n 4. getting around \n 5. spending money \n')
@@ -48,69 +54,55 @@ def menu():
             health_list = randomlist.Randomlist(open(f'/Users/anna/terminalapp/body_and_health.csv','r',encoding='utf-8-sig')) 
             #print(healthlist.workinglist)
             health_vocab = health_list.workinglist
-            #print(healthvocab)
             health_table = randomlist.TableGenerator(health_vocab)
+            nav_option()
             health_flashcards = flashcard.FlashcardGenerator(health_table)   
+            nav_option()
             health_quiz = quiz.QuizGenerator(health_vocab)
+            nav_option()
             health_contextquiz = quiz.ContextQuizGenerator(health_vocab)
-            # clear = flashcard.clear_lists()
+            print('Super gemacht! Back to Menu!')
             menu()
  
 
         elif menu_option == '2':
             time_list = randomlist.Randomlist(open(f'/Users/anna/terminalapp/time_vocab.csv','r',encoding='utf-8-sig'))
-            #print(healthlist.workinglist)
-            time_vocab = time_list.workinglist
-            #print(healthvocab)
+            time_vocab = time_list.workinglist        
             time_table = randomlist.TableGenerator(time_vocab)
-            #print(healthtable.vocabtable)
             time_flashcards = flashcard.FlashcardGenerator(time_vocab)
-            # time_quiz = quiz.QuizGenerator(time_vocab)
-            # time_contextquiz = quiz.ContextQuizGenerator(time_vocab)
-            # clear = flashcard.clear_lists()
+            time_quiz = quiz.QuizGenerator(time_vocab)
+            time_contextquiz = quiz.ContextQuizGenerator(time_vocab)
+
             menu()
 
         elif menu_option == '3':
             food_list = randomlist.Randomlist(open(f'/Users/anna/terminalapp/food.csv','r',encoding='utf-8-sig'))
-            #print(healthlist.workinglist)
             food_vocab = food_list.workinglist
-            #print(healthvocab)
             food_table = randomlist.TableGenerator(food_vocab)
-            #go back to menu or make flashcards or quiz
-            #print(healthtable.vocabtable)
             food_flashcards = flashcard.FlashcardGenerator(food_table)
-            #Go back to menu to list or quiz
             food_quiz = quiz.QuizGenerator(food_vocab)
-            # #Got back to menu to flashcards or list
             food_contextquiz = quiz.ContextQuizGenerator(food_vocab)
-            # clear = flashcard.clear_lists()
+           
             menu()
 
         elif menu_option == '4':
             travel_list = randomlist.Randomlist(open(f'/Users/anna/terminalapp/travel_and_directions.csv','r',encoding='utf-8-sig'))
-            #print(healthlist.workinglist)
             travel_vocab = travel_list.workinglist
-            #print(healthvocab)
             travel_table = randomlist.TableGenerator(travel_vocab)
-            #print(healthtable.vocabtable)
-            # travel_flashcards = flashcard.FlashcardGenerator(travel_table)
-            # travel_contextquiz = quiz.ContextQuizGenerator(travel_vocab)
-            # clear = flashcard.clear_lists()
+            travel_flashcards = flashcard.FlashcardGenerator(travel_table)
+            travel_quiz = quiz.QuizGenerator(travel_vocab)
+            travel_contextquiz = quiz.ContextQuizGenerator(travel_vocab)
+           
             menu()
 
         elif menu_option == '5':
             spending_list = randomlist.Randomlist(open(f'/Users/anna/terminalapp/money_and_transactions.csv','r',encoding='utf-8-sig'))
-            #print(healthlist.workinglist)
-            
             spending_vocab = spending_list.workinglist
-            
             spending_table = randomlist.TableGenerator(spending_vocab)
-            #print(healthtable.vocabtable)
             spending_flashcards = flashcard.FlashcardGenerator(spending_table)
-            # spending_quiz = quiz.QuizGenerator(spending_vocab)
-            # spending_contextquiz = quiz.ContextQuizGenerator(spending_vocab)
-            #
-            # clear = flashcard.clear_lists()
+            spending_quiz = quiz.QuizGenerator(spending_vocab)
+            spending_contextquiz = quiz.ContextQuizGenerator(spending_vocab)
+
             menu()
 
         elif menu_option != '1' or menu_option != '2' or menu_option != '3' or menu_option != '4' or menu_option != '5':
