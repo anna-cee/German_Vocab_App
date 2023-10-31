@@ -1,7 +1,9 @@
 #!/bin/bash
 
+echo "Requirement and virtual environmeng will load..."
 python3 -m venv .venv
 source .venv/bin/activate
-python3 -m pip install -r ./requirements.txt
-python3 main.py 
+pip3 install -r ./requirements.txt
+echo "Now we're ready to go!"
+python3 ./main.py 
 deactivate
