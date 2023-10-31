@@ -18,7 +18,7 @@ def welcome():
     for x in welcome_hor:
         print(Fore.YELLOW + x, end=" ", flush=True)
         time.sleep(0.1)
-    title = 'RANDOM VOCABULARY LIST \n & QUIZ GENERATOR \n \n'
+    title = 'VOCABULARY RANDOMIZER \n & QUIZ GENERATOR \n \n'
     for x in title: 
         print(Fore.RED, Style.BRIGHT + x, end=" ", flush=True)
     type = 'German for Beginners! \n \n'
