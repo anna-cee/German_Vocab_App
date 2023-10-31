@@ -7,10 +7,11 @@ try:
     class FlashcardGenerator:
         def __init__(self, tablename):
             self.tablename = tablename
-            print(Fore.MAGENTA + "FLASHCARD GENERATOR ...\n")
+            print(Fore.MAGENTA, Style.BRIGHT + "FLASHCARD GENERATOR ...\n")
             self.nav_option(tablename)
         
         def nav_option(self, tablename):
+            print(Fore.CYAN, Style.NORMAL)
             direction = input(f"Enter 'E' for English > German, or 'G' for German > English    ('N' = Next) ")
             if direction == 'E':
                 self.flash_eng(tablename)
@@ -19,7 +20,7 @@ try:
             elif direction == 'N':
                 self.flash_clear(tablename)
             elif direction != 'E' or direction != 'G' or direction != 'N':
-                    print('Oops, try again')
+                    print('Oops, try again \n')
                     (FlashcardGenerator(tablename))
         
         
@@ -29,9 +30,10 @@ try:
                 print(Fore.MAGENTA + '\n==================')
                 print(Fore.MAGENTA, Style.BRIGHT + randomlist.englishlist[index])
                 input()
-                input(randomlist.germanlist[index])
+                print(Fore.CYAN, Style.NORMAL + randomlist.germanlist[index])
+                input()
                 index += 1
-            print('Nochmal? Tryagain?')
+            print(Fore.MAGENTA + 'Nochmal? Tryagain?')
             self.nav_option(tablename)
     
 
@@ -39,12 +41,13 @@ try:
             index = 0
             while index < len(randomlist.englishlist):
             
-                print('\n==================')
-                print(randomlist.germanlist[index])
+                print(Fore.MAGENTA + '\n==================')
+                print(Fore.MAGENTA, Style.BRIGHT + randomlist.germanlist[index])
                 input()
-                input(randomlist.englishlist[index])
+                print(Fore.CYAN, Style.NORMAL + randomlist.englishlist[index])
+                input()
                 index += 1
-            print('\n  Nochmal? Go again? \n')
+            print(Fore.MAGENTA + '\n Nochmal? Go again? \n')
             self.nav_option(tablename)
         
 

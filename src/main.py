@@ -9,37 +9,40 @@ outline = PrettyTable()
 
 
 #Start Welcome
-# welcome = 'Tag! Wilkommen!'
-# for x in welcome:
-#     sys.stdout.flush  
-#     print(Fore.YELLOW, Style.BRIGHT + x )
-#     time.sleep(0.2)
-# for x in welcome:
-#     print(Fore. YELLOW + x, end=" ", flush=True)
-#     time.sleep(0.2)
-# title = '\nRandom Vocabulary List & Quiz Generator \n'
-# for x in title:
-#     print(Fore. RED + x, end ="", flush=True)
-# type = 'German for Beginners!'
-# print(Fore.CYAN + type)
-# input()
+welcome_vert = 'Tag! Wilkommen!'
+for x in welcome_vert:
+    sys.stdout.flush  
+    print(Fore.YELLOW + x )
+    time.sleep(0.1)
+welcome_hor = 'Tag! Wilkommen! \n \n'
+for x in welcome_hor:
+    print(Fore.YELLOW + x, end=" ", flush=True)
+    time.sleep(0.1)
+title = 'RANDOM VOCABULARY LIST \n & QUIZ GENERATOR \n \n'
+for x in title: 
+    print(Fore.RED, Style.BRIGHT + x, end=" ", flush=True)
+type = 'German for Beginners! \n \n'
+print(Fore.CYAN + type)
+input("Please ENTER \n")
     
 
 
-features = [ '1. Choose a topic \n'
-        '2. Generate a list of 10 random vocab from the topic. \n'
-        '3. View the list, translation and context sentences. \n'
-        '4. Flashcards generate to learn the list \n'
-        '5. Quiz your memory with a word-match and gap-fill quiz. \n' ]
+features = [ '* Choose a topic \n'
+        '* Generate a list of 10 random vocab from the topic. \n'
+        '* View the list, translation and context sentences. \n'
+        '* Flashcards generate to learn the list \n'
+        '* Quiz your memory with a word-match and gap-fill quiz. \n' ]
 
 outline.add_column('App features include:', features)
 features_table = outline.get_string(fields=['App features include:'])
-print(features_table)
+print(Style.RESET_ALL + features_table)
+input('ENTER for Topic Menu')
 
 class MenuCheckError(Exception):
     pass
 
 def nav_option():
+    print(Style.RESET_ALL)
     navoption = input("Press any key for next feature or 'M' to return to Main Menu for a new list.\n")
     if navoption == 'M':
          menu()
@@ -47,9 +50,8 @@ def nav_option():
 
 def menu():
     try:
-        menu_option= input('\nCHOOSE A TOPIC TO START! \n \n 1. health and body \n 2. time \n 3. food \n 4. getting around \n 5. spending money \n')
-
-
+        menu_option = input(Fore.CYAN + "\nCHOOSE A TOPIC TO START! \n \n 1. health and body \n 2. time \n 3. food \n 4. getting around \n 5. spending money \n")
+    
         if menu_option == '1':
             health_list = randomlist.Randomlist(open(f'/Users/anna/terminalapp/body_and_health.csv','r',encoding='utf-8-sig')) 
             health_vocab = health_list.workinglist
@@ -60,7 +62,7 @@ def menu():
             health_quiz = quiz.QuizGenerator(health_vocab)
             nav_option()
             health_contextquiz = quiz.ContextQuizGenerator(health_vocab)
-            print('Super gemacht! Back to Menu!')
+            print(Fore.YELLOW + 'Super gemacht! Back to Menu!')
             menu()
  
 
@@ -74,7 +76,7 @@ def menu():
             time_quiz = quiz.QuizGenerator(time_vocab)
             nav_option()
             time_contextquiz = quiz.ContextQuizGenerator(time_vocab)
-            print('Super gemacht! Back to Menu!')
+            print(Fore.YELLOW + 'Super gemacht! Back to Menu!')
 
             menu()
 

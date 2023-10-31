@@ -49,12 +49,14 @@ try:
             table.add_column("German", self.germanlist)
             table.add_column("Context", self.contextlist)
             self.vocabtable = table.get_string(fields=["German", "English"])
-            print(Fore.GREEN + 'RANDOM LIST...')
-            print(Fore.GREEN + self.vocabtable)
+            print(Fore.GREEN, Style.BRIGHT + 'RANDOM LIST...')
+            print(Fore.GREEN, Style.NORMAL + self.vocabtable)
+            print(Style.RESET_ALL)
         
             input('Press any key to see list with words in context.')
             self.vocabtable = table.get_string(fields=["German", "English", "Context"])
             print(Fore.GREEN + self.vocabtable)
+            print(Style.RESET_ALL)
 
             self.vocabtable = table.clear()
             

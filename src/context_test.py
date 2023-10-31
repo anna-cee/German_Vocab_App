@@ -1,4 +1,5 @@
 import pytest
+import string
 
 
 quiz_test_data = [
@@ -20,17 +21,26 @@ def quiz_test(datalist):
     for item in datalist: 
         sentence = item['Context'].split()
         matchlist = item['German'].split()
-        for match in matchlist:
+        if len(matchlist) == 2 or len(matchlist) == 3:
+            match = matchlist[1]
             match_clean = match.strip()
-            if len(match_clean) > 3 or len(match_clean)<= 2:
-                target_word = match_clean
-                print(target_word)
+            #print(match_clean) 
+        elif len(matchlist) == 1:
+            match = matchlist[0]
+            match_clean = match.strip()
+            #print(match_clean)
         for word in sentence:
             word_clean = word.strip()
-            if word_clean == target_word:
-                print(word_clean)
-    
-        #assert word_clean == target_word
+            word_nopunct = word_clean.rstrip(".,?!")
+            #print(word_nopunct)
+            if word_nopunct == match_clean:
+                sentence[(sentence.index(word_clean))] = "__________"
+                separator = " "
+                print(f'Which word is missing?        {(separator.join(sentence))}  ')     
+         
+
+
+  
             
 quiz_test(quiz_test_data)
   
