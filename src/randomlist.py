@@ -1,5 +1,6 @@
 import csv
 import random
+import os
 import string
 from prettytable import PrettyTable
 #from prettytable.colortable import ColorTable
@@ -12,11 +13,12 @@ englishlist = []
 contextlist = []
 
 
-healthlist = open(f'/Users/anna/terminalapp/body_and_health.csv','r',encoding='utf-8-sig')
-spendinglist= open(f'/Users/anna/terminalapp/money_and_transactions.csv','r',encoding='utf-8-sig')
-foodlist = open(f'/Users/anna/terminalapp/food.csv','r',encoding='utf-8-sig')
-timelist = open(f'/Users/anna/terminalapp/time_vocab.csv','r',encoding='utf-8-sig')
-travellist = open(f'/Users/anna/terminalapp/travel_and_directions.csv','r',encoding='utf-8-sig')
+
+healthlist = open(f'body_and_health.csv','r',encoding='utf-8-sig')
+spendinglist= open(f'money_and_transactions.csv','r',encoding='utf-8-sig')
+foodlist = open(f'food.csv','r',encoding='utf-8-sig')
+timelist = open(f'time_vocab.csv','r',encoding='utf-8-sig')
+travellist = open(f'travel_and_directions.csv','r',encoding='utf-8-sig')
 
 try:
 

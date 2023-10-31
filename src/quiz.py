@@ -17,8 +17,8 @@ try:
                 for item in workinglist:
                     targetvocab = item['German']
                     definevocab = item['English']
-                    cleantarget = targetvocab.rstrip()
-                    cleandefine = definevocab.rstrip()
+                    cleantarget = targetvocab.strip()
+                    cleandefine = definevocab.strip()
                     print(Fore.GREEN)
                     answer = input(f'What is the German for {cleandefine}? ')
                     index +=1

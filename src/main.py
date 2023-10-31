@@ -53,7 +53,7 @@ def menu():
         menu_option = input(Fore.CYAN + "\nCHOOSE A TOPIC TO START! \n \n 1. health and body \n 2. time \n 3. food \n 4. getting around \n 5. spending money \n")
     
         if menu_option == '1':
-            health_list = randomlist.Randomlist(open(f'/Users/anna/terminalapp/body_and_health.csv','r',encoding='utf-8-sig')) 
+            health_list = randomlist.Randomlist(open('body_and_health.csv','r',encoding='utf-8-sig')) 
             health_vocab = health_list.workinglist
             health_table = randomlist.TableGenerator(health_vocab)
             nav_option()
@@ -67,7 +67,7 @@ def menu():
  
 
         elif menu_option == '2':
-            time_list = randomlist.Randomlist(open(f'/Users/anna/terminalapp/time_vocab.csv','r',encoding='utf-8-sig'))
+            time_list = randomlist.Randomlist(open(f'time_vocab.csv','r',encoding='utf-8-sig'))
             time_vocab = time_list.workinglist        
             time_table = randomlist.TableGenerator(time_vocab)
             nav_option()
@@ -81,7 +81,7 @@ def menu():
             menu()
 
         elif menu_option == '3':
-            food_list = randomlist.Randomlist(open(f'/Users/anna/terminalapp/food.csv','r',encoding='utf-8-sig'))
+            food_list = randomlist.Randomlist(open(f'food.csv','r',encoding='utf-8-sig'))
             food_vocab = food_list.workinglist
             food_table = randomlist.TableGenerator(food_vocab)
             nav_option()
@@ -95,7 +95,7 @@ def menu():
             menu()
 
         elif menu_option == '4':
-            travel_list = randomlist.Randomlist(open(f'/Users/anna/terminalapp/travel_and_directions.csv','r',encoding='utf-8-sig'))
+            travel_list = randomlist.Randomlist(open(f'travel_and_directions.csv','r',encoding='utf-8-sig'))
             travel_vocab = travel_list.workinglist
             travel_table = randomlist.TableGenerator(travel_vocab)
             nav_option()
@@ -110,7 +110,7 @@ def menu():
             menu()
 
         elif menu_option == '5':
-            spending_list = randomlist.Randomlist(open(f'/Users/anna/terminalapp/money_and_transactions.csv','r',encoding='utf-8-sig'))
+            spending_list = randomlist.Randomlist(open(f'money_and_transactions.csv','r',encoding='utf-8-sig'))
             spending_vocab = spending_list.workinglist
             spending_table = randomlist.TableGenerator(spending_vocab)
             nav_option()
