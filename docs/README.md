@@ -162,25 +162,8 @@ please see my slide documentation in /ppt for detailed run down on plan, screens
 
 
 
+## About
 
-Purpose & Scope
-This is  a simple CLI app for practising a pool of vocabulary for language learners.
-The idea is that rather than having discrete lists for different textbook modules or topics in different places or random words from the dictionary, you have the pool of vocabulary for your level in one place, but with the benefit of having the words organised by topic, as you would in language learning materials
-
-Its aim is to:
-	organise a pool of vocabulary aimed at a specific learning level into topical groups.
-	allow you, the user, to choose random lists from each topic group.
-	The random lists from a select pool help you mix recycling learned vocabulary while 		
-	learning new vocabulary.
-	Help you to practice recalling the lexical items, much like handmade flashcards.
-	Have an opportunity to practice spelling accuracy.
-	Have the opportunity to learn the lexical item in context as well as isolation.
-	Allow for shorter or longer learning times.
-	
-The purpose is not to:
-	tally/log incorrect answers or limit number of guesses, though correct recall is praised.
-
-Instead, features are designed to allow you to freely repeat each exercise as much as you like, or skip one, or get a new list if you like.
 
 Flow:
 
